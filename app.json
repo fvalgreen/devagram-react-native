@@ -1,4 +1,18 @@
 {
+  "colors": {
+    "corPrimaria1": "#3BD42D",
+    "corPrimaria2": "#5E49FF",
+    "corPrimaria3": "#25CBD3",
+    "corPrimaria4": "#F0F5FF",
+    "corBranco": "#FFFFFF",
+    "corCinza": "#F4F4F4",
+    "corCinza1": "#DADADA",
+    "corCinza2": "#7C7786",
+    "corCinza3": "#4D4C4D",
+    "corCinza4": "#333333",
+    "corCinza5": "#E5E5E5",
+    "corVermelho": "#FF0000"
+  },
   "expo": {
     "name": "devagram-react-native",
     "slug": "devagram-react-native",
@@ -11,9 +25,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -25,6 +37,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "react-native-vision-camera",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "O aplicativo Devagram deseja ter acesso à galeria de seu dispositivo"
+        }
+      ]
+    ]
   }
 }
