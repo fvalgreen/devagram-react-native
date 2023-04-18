@@ -19,8 +19,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     fontSize: 14,
     fontFamily: "BiennaleLight",
-    color: colors.corCinza2,
-    outLineColor: "transparent"
+    color: colors.corCinza2,    
   },
   row: {
     flexDirection: "row",

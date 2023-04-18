@@ -5,9 +5,14 @@ import AppLoading from "expo-app-loading";
 import Button from "./src/_components/Button";
 import Input from "./src/_components/Input";
 import { useState } from "react";
+import UploadImage from "./src/_components/UploadImage";
+import * as ImagePicker from "expo-image-picker";
+
+
 
 export default function App() {
   const [email, setEmail] = useState<string>("");
+  const [image, setImage] = useState<ImagePicker.ImagePickerResult | null>(null);
   const [fontsLoaded] = useFonts({
     BiennaleBold: require("./assets/fonts/BiennaleBold.otf"),
     BiennaleLight: require("./assets/fonts/BiennaleLight.otf"),
@@ -15,6 +20,7 @@ export default function App() {
   });
   return fontsLoaded ? (
     <View style={styles.container}>
+      <UploadImage setImage={setImage} image={image}/>
       <Button
         onPress={() => {}}
         placeholder="Clique aqui"
