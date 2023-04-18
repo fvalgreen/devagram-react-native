@@ -24,6 +24,12 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     alignItems: "center"
+  },
+  image:{
+    width: 10,
+    height: 10,
+    padding: 2,
+    margin: 5,
   }
 })
 

@@ -8,7 +8,7 @@ const Input = (props: IInpput) => {
     <View style={styles.containerInput}>
       <View style={styles.row} >
         {props.icone && 
-        <Image source={props.icone}/>
+        <Image style={styles.image} source={props.icone}/>
         }
         <TextInput 
           placeholder={props.placeholder}
