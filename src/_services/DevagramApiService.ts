@@ -29,7 +29,7 @@ export const api = async (endpoint: string, method: Method, body?: any, newHeade
 };
 
 const post = async (url: string, data: any, headers?: any) => {
-  re;turn api(url, "POST", data, headers);
+  return api(url, "POST", data, headers);
 }
 const get = async (url: string, headers?: any) => {
   return api(url, "GET", headers);
