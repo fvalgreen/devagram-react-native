@@ -10,15 +10,7 @@ import styles from "./styles";
 import SvgLogo from "../../_assets/image/SvgLogo";
 import SvgChave from "../../_assets/image/SvgChave";
 import SvgEnvelope from "../../_assets/image/SvgEnvelope";
-import SvgLogout from "../../_assets/image/SvgLogout";
-import SvgLupa from "../../_assets/image/SvgLupa";
-import SvgPaisagem from "../../_assets/image/SvgPaisagem";
-import SvgPublicacaoAtivo from "../../_assets/image/SvgPublicacaoAtivo";
-import SvgPublicacaoCinza from "../../_assets/image/SvgPublicacaoCinza";
-import SvgSetaEsquerda from "../../_assets/image/SvgSetaEsquerda";
-import SvgTextura from "../../_assets/image/SvgTextura";
-import SvgUsuarioAtivo from "../../_assets/image/SvgUsuarioAtivo";
-import SvgUsuarioCinza from "../../_assets/image/SvgUsuarioCinza";
+
 
 
 
@@ -28,8 +20,7 @@ const Login = () => {
   
   return (
     <View style={styles.container}>
-      <SvgUsuarioCinza/>
-      
+      <SvgLogo style={styles.logo} />      
       <Input
         onChangeText={(e: string) =>
           setEmail(e)}

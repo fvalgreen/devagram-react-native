@@ -1,6 +1,6 @@
-import {StyleSheet} from "react-native";
+import {Dimensions, StyleSheet} from "react-native";
 
-
+const {height, width} = Dimensions.get("screen")
 const {colors} = require("../../../app.json");
 
 const styles = StyleSheet.create({
@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  logo: {
+    marginBottom: height * 0.04
+  }
 });
 
 export default styles;
