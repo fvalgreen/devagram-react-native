@@ -1,6 +1,9 @@
 import { Image, View, TouchableOpacity, Text } from "react-native";
 import styles from "./styles";
 import * as ImagePicker from "expo-image-picker";
+import SvgAvatar from "../../_assets/image/SvgAvatar";
+import SvgCamera from "../../_assets/image/SvgCamera";
+import SvgAvatarCamera from "../../_assets/image/SvgAvatarCamera";
 
 const UploadImage = (props: {
   setImage: (imagem: ImagePicker.ImagePickerResult) => void,
@@ -28,10 +31,12 @@ const UploadImage = (props: {
           source={{uri: props.image.uri}}
         ></Image>
         :
-        <Image
-          style={{ width: 110, height: 110 }}
-          source={require("../../_assets/image/avatarFoto.png")}
-        ></Image>
+        <View>
+          <SvgAvatarCamera
+            style={{ width: 110, height: 110 }}          
+          />
+          
+        </View>
         }
         
       </TouchableOpacity>

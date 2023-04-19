@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
   logo: {
     marginBottom: height * 0.04
   },
-  containerWithAccount:{
+  containerWithoutAccount:{
     marginTop: height * 0.04,
     alignItems: "center"
   },
-  textSignUp: {
+  textSignIn: {
     fontSize: 14,
     fontFamily: "BiennaleBold",
     color: colors.corPrimaria2,

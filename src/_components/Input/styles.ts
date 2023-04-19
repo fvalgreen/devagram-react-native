@@ -8,7 +8,7 @@ const {colors} = require("../../../app.json");
 
 const styles = StyleSheet.create({
   containerInput: {
-    marginTop: height/20,
+    marginTop: height * 0.03,
     width: width/1.3,
     height: height/25,
     borderBottomColor: colors.corPrimaria2,
@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
   },
   input:{
     width: width/1.4,
-    paddingHorizontal: 12,
+    paddingHorizontal: 6,
+    marginLeft: 3,
     fontSize: 14,
     fontFamily: "BiennaleLight",
     color: colors.corCinza2,    

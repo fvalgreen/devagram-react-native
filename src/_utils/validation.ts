@@ -16,3 +16,5 @@ const validateConfirmPassword = (
 ): boolean => {
   return password === confirmPassword;
 };
+
+export {validateName, validateEmail, validatePassword, validateConfirmPassword}
