@@ -17,6 +17,7 @@ import {
   validateName,
   validatePassword,
 } from "../../_utils/validation";
+import * as UserService from "../../_services/UserService";
 
 const Register = () => {
   type navigationTypes = NativeStackNavigationProp<
@@ -32,6 +33,35 @@ const Register = () => {
   const [image, setImage] = useState<any | null>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const onRegister = async () => {
+    try {
+      setLoading(true);
+      const body = new FormData();
+      body.append("nome", name);
+      body.append("email", email);
+      body.append("senha", password);
+
+      if (image) {
+        const file: any = {
+          uri: image.uri,
+          type: `image/${image.uri.split("/").pop().split(".").pop()}`,
+          name: image.uri.split("/").pop(),
+        };
+        body.append("file", file);
+      }
+      await UserService.register(body);
+
+      await UserService.login({ login: email, senha: password });
+      setLoading(false);
+      navigation.navigate("Home");
+    } catch (error: any) {
+      console.log(error);
+      setError("Erro ao efetuar cadastro, tente novamente");
+      setLoading(false);
+    }
+  };
 
   const formIsValid = () => {
     if (
@@ -113,9 +143,9 @@ const Register = () => {
       />
 
       <Button
-        onPress={() => {}}
+        onPress={() => onRegister()}
         placeholder="Cadastrar"
-        loading={false}
+        loading={loading}
         disabled={formIsValid()}
       />
 

@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   logo: {
-    marginBottom: height * 0.04
+    marginBottom: height * 0.04,
+    
   },
   containerWithAccount:{
     marginTop: height * 0.04,
