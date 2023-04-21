@@ -5,7 +5,7 @@ import { View } from "react-native";
 const SvgLogoHorizontal = (props: { style?: any }) => {
   return (
     <View style={props.style}>
-      <Svg width="205" height="40" viewBox="0 0 205 40" fill="none">
+      <Svg width="160" height="50" viewBox="0 0 205 40" fill="none">
         <Path
           d="M6.49197 34.8131C6.50937 35.8313 7.38393 36.6275 8.40207 36.6275H17.8482C18.8663 36.6275 19.7452 35.8313 19.7583 34.8131C19.7757 33.7819 18.9403 32.9378 17.9135 32.9378H8.33246C7.30562 32.9378 6.47456 33.7776 6.49197 34.8131Z"
           fill="#5E49FF"

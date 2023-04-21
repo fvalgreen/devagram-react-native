@@ -4,8 +4,7 @@ const {width, height} = Dimensions.get('screen');
 const {colors} = require("../../../../app.json");
 
 const styles = StyleSheet.create({
-  container: {
-    
+  container: {    
     backgroundColor: colors.corPrimaria4,
     width: width,
     height: height * 0.05,        

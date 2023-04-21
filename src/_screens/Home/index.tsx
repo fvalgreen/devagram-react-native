@@ -3,7 +3,11 @@ import Container from "../../_components/Container";
 
 const Home = () => {
   return (
-    <Container footerProps={{currentTab: 'Home'}}>
+    <Container 
+    footerProps={{currentTab: 'Home'}}
+    headerProps={{default: true}}
+    
+    >
       <Text>Home</Text>
     </Container>
   );
