@@ -14,6 +14,7 @@ const Routes = () => {
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Home" component={Home} />
       
+      
     </Stack.Navigator>
   )
 };

@@ -25,7 +25,7 @@ const Login = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    // verifyLogged();
+    verifyLogged();
   }, [])
 
   const onLogin = async () => {

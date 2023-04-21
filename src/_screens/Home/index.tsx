@@ -1,12 +1,12 @@
-import { Text, View } from "react-native"
+import { Text, View } from "react-native";
+import Container from "../../_components/Container";
 
 const Home = () => {
   return (
-    <View>
+    <Container footerProps={{currentTab: 'Home'}}>
       <Text>Home</Text>
-    </View>
-
-  )
-}
+    </Container>
+  );
+};
 
 export default Home;
