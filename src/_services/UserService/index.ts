@@ -33,6 +33,11 @@ const getCurrentUser = async () => {
   return user;
 };
 
+const search = async (filter: string) => {
+  console.log(`/pesquisa?filtro=${filter}`)
+  return await DevagramApiService.get(`/pesquisa?filtro=${filter}`);
+  
+}
 
 
-export { login, getCurrentUser, updateCurrentUser, register };
+export { login, getCurrentUser, updateCurrentUser, register, search };

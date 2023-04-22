@@ -5,7 +5,7 @@ const {colors} = require("../../../../app.json");
 
 const styles = StyleSheet.create({
   container: {   
-    height: height * 0.08, 
+    height: height * 0.075, 
     backgroundColor: colors.corBranco,
     borderBottomColor: colors.corCinza1,
     borderBottomWidth: 1,
@@ -19,22 +19,22 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
  logo: {       
-    marginLeft: 0,
+    marginHorizontal: 6,
     flex: 0.8,
     
   },
   icon: {
-    marginLeft: 9,
+    marginLeft: 6,
   },
   input: {
-    width: width / 2.9,
+    width: width / 2.95,
     paddingHorizontal: 0,
     fontFamily: 'BiennaleLight',
     color: colors.corCinza4,
     marginLeft: 9,
   },
   inputActive:{
-    width: width / 2.9,
+    width: width / 2.95,
     paddingHorizontal: 12,
     fontFamily: 'BiennaleLight',
     color: colors.corPrimaria2

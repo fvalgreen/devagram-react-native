@@ -6,7 +6,7 @@ import {View} from "react-native"
 const SvgAvatar = (props: {style?: any }) => {
   return (
     <View style={props.style}>
-      <Svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+      <Svg viewBox="0 0 120 120" fill="none">
         <Mask
           id="mask0_2_38"
           maskUnits="userSpaceOnUse"
