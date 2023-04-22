@@ -9,8 +9,10 @@ const login = async (body: ILogin) => {
 };
 
 const register = async (body: FormData) => {
-  await DevagramApiService.post("/cadastro", body, {"content-Type": "multipart/form-data"})
-}
+  await DevagramApiService.post("/cadastro", body, {
+    "content-Type": "multipart/form-data",
+  });
+};
 
 const updateCurrentUser = async () => {
   const user = await DevagramApiService.get("/usuario");
@@ -34,10 +36,9 @@ const getCurrentUser = async () => {
 };
 
 const search = async (filter: string) => {
-  console.log(`/pesquisa?filtro=${filter}`)
+  console.log(`/pesquisa?filtro=${filter}`);
   return await DevagramApiService.get(`/pesquisa?filtro=${filter}`);
-  
-}
+};
 
 
 export { login, getCurrentUser, updateCurrentUser, register, search };
