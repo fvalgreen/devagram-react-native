@@ -71,7 +71,7 @@ const Search = (props: { filter: string }) => {
 
   return (
   <View style={styles.container}>
-    {users.length > 0 &&
+    {users.length > 0 ?
     <FlatList 
       data={users} 
       renderItem={({item}) => renderItem(item)} 
@@ -86,6 +86,8 @@ const Search = (props: { filter: string }) => {
         null
         )}
       />
+      :
+      null
     }
   </View>
   );

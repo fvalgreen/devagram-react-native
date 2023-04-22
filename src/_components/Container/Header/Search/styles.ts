@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   imageUser: {
     width: 32,
     height: 32,
-    borderRadius: 10,
+    borderRadius: 100,
   },
   name: {
     fontFamily: "BiennaleBold",

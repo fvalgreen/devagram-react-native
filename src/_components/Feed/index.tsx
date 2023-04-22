@@ -71,7 +71,7 @@ const Feed = (props: { isProfileFeed?: boolean; profile?: IUserData }) => {
   <View>
     <FlatList 
       data={posts} 
-      renderItem={({item}) => <Post />} 
+      renderItem={({item}) => <Post post={item}/>} 
       keyExtractor={item => item.id?.toString()}
       onEndReachedThreshold={0.1}
       ListHeaderComponent={() => (
@@ -81,6 +81,7 @@ const Feed = (props: { isProfileFeed?: boolean; profile?: IUserData }) => {
        null
        )}
     />
+    
   </View>
   );
 };
