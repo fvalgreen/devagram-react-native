@@ -34,7 +34,7 @@ const post = async (url: string, data: any, headers?: any) => {
 const get = async (url: string, headers?: any) => {
   return api(url, "GET", headers);
 };
-const put = async (url: string, data: any, headers?: any) => {
+const put = async (url: string, data?: any, headers?: any) => {
   return api(url, "PUT", data, headers);
 };
 

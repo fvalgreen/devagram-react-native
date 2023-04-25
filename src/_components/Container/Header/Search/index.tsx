@@ -4,6 +4,7 @@ import { IUserData } from "../../../../_services/UserService/types";
 import { search } from "../../../../_services/UserService";
 import styles from "./styles";
 import SvgAvatar from "../../../../_assets/image/SvgAvatar";
+import Avatar from "../../../Avatar";
 
 const Search = (props: { filter: string }) => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -52,11 +53,7 @@ const Search = (props: { filter: string }) => {
       <TouchableOpacity style={user.index % 2 != 0 ? styles.backgroundOdd : styles.backgroundEven } >
         <View style={styles.row} >
           <View>
-            {user.avatar ? 
-              <Image style={styles.imageUser} source={{uri: user.avatar}} />
-              :
-              <SvgAvatar style={styles.imageUser} />
-            }
+            <Avatar image={user.avatar}/>
           </View>
           <View  >
             <Text style={styles.name} >{user.name}</Text>

@@ -5,6 +5,8 @@ const { colors } = require("../../../../app.json");
 
 const styles = StyleSheet.create({
   container: {
+    marginBottom: 0,
+    paddingBottom: 0
     
   },
   imageUser: {
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   iconActions: {
-    paddingHorizontal: 3
+    paddingRight: 3
   },
   textLikes: {
     paddingLeft: 5,
@@ -51,6 +53,26 @@ const styles = StyleSheet.create({
   },
   textLikesBold: {
     fontFamily: "BiennaleBold",
+  },
+  containerDescription: {
+    backgroundColor: colors.corBranco,
+    paddingHorizontal: 10,
+    paddingBottom: 0,
+  },
+  textDescription: {
+    fontSize: 14,
+    fontFamily: "BiennaleRegular",
+    color: colors.corCinza4,
+    
+  },
+  textMoreOrLess: {
+    fontSize: 14,
+    fontFamily: "BiennaleRegular",
+    color: colors.corPrimaria3,
+    
+  },
+  displayNone: {
+    display: "none"
   } 
 });
 
