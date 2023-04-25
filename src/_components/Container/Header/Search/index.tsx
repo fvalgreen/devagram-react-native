@@ -21,8 +21,7 @@ const Search = (props: { filter: string }) => {
 
   const findUsers = useCallback(async () => {
     try {
-      setLoading(true);      
-      console.log(props.filter)
+      setLoading(true);
       const { data } = await search(props.filter);
       const usersFormated: IUserData[] = data?.map(
         (user: any, index: number) => {

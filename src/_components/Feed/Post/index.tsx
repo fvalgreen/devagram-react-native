@@ -20,7 +20,7 @@ const Post = (props: { post: IPost }) => {
   const [numberOfLikes, setNumberOfLikes] = useState<number>(props.post.likes.length);
   const [commented, setCommented] = useState<boolean>(true);
   const [userLogged, setUserLogged] = useState<IUser>();
-  const [textMoreorLess, setTextMoreOrLess] = useState<string>("ver mais");
+  const [textMoreorLess, setTextMoreOrLess] = useState<string>("ver mais/menos");
   const [description, setDescription] = useState<string>(
     props.post.description
   );
@@ -61,7 +61,7 @@ const Post = (props: { post: IPost }) => {
   const getDescription = () => {
     if (
       props.post.description.length > limitOfDescription &&
-      textMoreorLess === "ver mais"
+      textMoreorLess === "ver mais/menos"
     ) {
       setDescription(
         props.post.description.substring(0, limitOfDescription) + "..."
@@ -70,7 +70,7 @@ const Post = (props: { post: IPost }) => {
     }else{
       if (
         props.post.description.length > limitOfDescription &&
-        textMoreorLess === "ver menos"
+        textMoreorLess === "ver mais\\menos"
       ) {
         setDescription(props.post.description + " ");
         setNumberOfLines(undefined);
@@ -79,9 +79,9 @@ const Post = (props: { post: IPost }) => {
   };
 
   const verifyLengthOfDescription = () => {
-    setTextMoreOrLess(textMoreorLess === "ver menos" ? "ver mais" : "ver menos");
+    setTextMoreOrLess(textMoreorLess === "ver mais/menos" ? "ver mais\\menos" : "ver mais/menos");
     getDescription();
-    console.log(textMoreorLess)
+    
   };
 
   return (

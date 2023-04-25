@@ -17,16 +17,15 @@ const Feed = (props: { isProfileFeed?: boolean; profile?: IUserData }) => {
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState<IPost[]>([]);
 
-  const {colors} = require('../../../app.json');
+  const { colors } = require("../../../app.json");
 
   useEffect(() => {
     loadPosts();
-    navigation.addListener('focus', () => {
-      loadPosts()
+    navigation.addListener("focus", () => {
+      loadPosts();
     });
-    console.log('ok')
-  },[props])
-  
+  }, [props]);
+
   const loadPosts = async () => {
     if ((props.isProfileFeed && props?.profile?.id) || !props.isProfileFeed) {
       try {
@@ -66,23 +65,20 @@ const Feed = (props: { isProfileFeed?: boolean; profile?: IUserData }) => {
     }
   };
 
-  
   return (
-  <View>
-    <FlatList 
-      data={posts} 
-      renderItem={({item}) => <Post post={item}/>} 
-      keyExtractor={item => item.id?.toString()}
-      onEndReachedThreshold={0.1}
-      ListHeaderComponent={() => (
-        loading ?        
-       <ActivityIndicator size={30} color={colors.corPrimaria2} />
-       :
-       null
-       )}
-    />
-    
-  </View>
+    <View>
+      <FlatList
+        data={posts}
+        renderItem={({ item }) => <Post post={item} />}
+        keyExtractor={(item) => item.id?.toString()}
+        onEndReachedThreshold={0.1}
+        ListHeaderComponent={() =>
+          loading ? (
+            <ActivityIndicator size={30} color={colors.corPrimaria2} />
+          ) : null
+        }
+      />
+    </View>
   );
 };
 

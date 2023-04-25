@@ -6,8 +6,7 @@ const Home = () => {
   return (
     <Container 
     footerProps={{currentTab: 'Home'}}
-    headerProps={{default: true}}
-    
+    headerProps={{default: true}}    
     >
     <Feed />
     </Container>

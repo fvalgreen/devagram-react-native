@@ -9,10 +9,7 @@ import * as FeedService from "../../../_services/FeedService";
 const Comments = (props: IComments) => {
   const [comment, setComment] = useState<string>("");
   const [comments, setComments] = useState<IComment[]>(props.comments)
-
-  useEffect(() => {
-    console.log(comments)
-  }, [comments])
+  
   const onComment = async () => {
     
       try {
@@ -35,7 +32,7 @@ const Comments = (props: IComments) => {
     <View style={styles.containerComments}>
       {comments?.length > 0 &&
         comments.map((comment: IComment, index: number) => (
-          <View>
+          <View key={index}>
             <Text style={styles.textContainer}>
               <Text style={styles.textUserName}>{comment.name}</Text>{" "}
               <Text style={styles.textComment}>{comment.message}</Text>
