@@ -89,7 +89,7 @@ const Post = (props: { post: IPost }) => {
       <View>
         <TouchableOpacity style={styles.containerUser}>
           <View>
-            <Avatar image={props.post.user.avatar} />
+            <Avatar user={props.post.user} />
           </View>
           <Text style={styles.textUserName}>{props.post.user.name}</Text>
         </TouchableOpacity>
