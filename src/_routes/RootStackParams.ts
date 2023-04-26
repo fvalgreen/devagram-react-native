@@ -6,4 +6,5 @@ export type RootStackParamList = {
   Home: undefined;
   NewPublication: undefined;
   Profile: IUser | IUserData | undefined;
-}
+  EditProfile: IUser | IUserData;
+};

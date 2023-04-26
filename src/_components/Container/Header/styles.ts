@@ -60,8 +60,7 @@ const styles = StyleSheet.create({
   },
   profileName: {
     fontFamily: "BiennaleBold",
-    fontSize: 16,  
-    
+    fontSize: 16,      
  }
   
 });

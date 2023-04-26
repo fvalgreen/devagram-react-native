@@ -30,9 +30,8 @@ const Feed = (props: { isProfileFeed?: boolean; profile?: IUserData }) => {
     if ((props.isProfileFeed && props?.profile?.id) || !props.isProfileFeed) {
       try {
         setLoading(true);
-        console.log(props.profile)
+
         const { data } = await FeedService.getPosts(props.profile?.id);
-        
 
         const postsFormated: IPost[] = data.map((post: any) => {
           const postFormated: IPost = {
