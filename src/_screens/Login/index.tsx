@@ -66,13 +66,14 @@ const Login = () => {
         icone={[<SvgChave />]}
         secureTextEntry={true}
       />
-
+      <View style={styles.button}>
       <Button
         onPress={() => onLogin()}
         placeholder="Login"
         loading={loading}
         disabled={!email || !password}
       />
+      </View>
 
       <View style={styles.containerWithAccount}>
         <Text>Não possui uma conta?</Text>

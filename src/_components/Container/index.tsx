@@ -12,6 +12,7 @@ const Container = (props: IContainer) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header
+        profileHeader={props.headerProps.profileHeader}
         default={props.headerProps.default}
         headerNewPublication={props.headerProps.headerNewPublication}
         searchBar={{
@@ -21,7 +22,7 @@ const Container = (props: IContainer) => {
       />
       <Search filter={filter}/>
       <View style={styles.content}>{props.children}</View>
-      <Footer currentTab={props.footerProps.currentTab} />
+      <Footer currentTab={props.footerProps.currentTab}  />
     </SafeAreaView>
   );
 };

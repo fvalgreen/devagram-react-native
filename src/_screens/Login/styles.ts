@@ -23,6 +23,10 @@ const styles = StyleSheet.create({
     fontFamily: "BiennaleBold",
     color: colors.corPrimaria2,
     textDecorationLine: "underline"
+  },
+  button: {
+    marginTop: height/20,
+    
   }
 });
 

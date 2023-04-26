@@ -2,6 +2,7 @@ export interface IHeader {
   default?: boolean;
   searchBar?: ISearchBar;
   headerNewPublication?: IHeaderNewPublication;
+  profileHeader?: IProfileHeader
 }
 
 export interface IHeaderNewPublication {
@@ -11,6 +12,11 @@ export interface IHeaderNewPublication {
 }
 
 export interface ISearchBar {
-  value: string,
-  onChange: (value: string) => void,
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export interface IProfileHeader {
+  userName: string;
+  idExternalProfile: boolean
 }

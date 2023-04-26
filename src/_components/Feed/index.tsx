@@ -30,8 +30,9 @@ const Feed = (props: { isProfileFeed?: boolean; profile?: IUserData }) => {
     if ((props.isProfileFeed && props?.profile?.id) || !props.isProfileFeed) {
       try {
         setLoading(true);
-
-        const { data } = await FeedService.getPosts(props?.profile?.id);
+        console.log(props.profile)
+        const { data } = await FeedService.getPosts(props.profile?.id);
+        
 
         const postsFormated: IPost[] = data.map((post: any) => {
           const postFormated: IPost = {
@@ -40,9 +41,9 @@ const Feed = (props: { isProfileFeed?: boolean; profile?: IUserData }) => {
             image: post.foto,
             likes: post.likes,
             user: {
-              id: post.idUsuario,
-              name: post.usuario.nome,
-              avatar: post.usuario.avatar,
+              id: post?.idUsuario || props.profile?.id,
+              name: post?.usuario?.nome || props.profile?.name,
+              avatar: post?.usuario?.avatar || props.profile?.avatar,
               token: "",
               email: "",
             },

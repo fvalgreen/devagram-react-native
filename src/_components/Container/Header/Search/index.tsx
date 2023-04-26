@@ -49,7 +49,7 @@ const Search = (props: { filter: string }) => {
   const renderItem = (user: IUserData) => {
     return (
       
-      <TouchableOpacity style={user.index % 2 != 0 ? styles.backgroundOdd : styles.backgroundEven } >
+      <TouchableOpacity style={user.index && user.index % 2 != 0 ? styles.backgroundOdd : styles.backgroundEven } >
         <View style={styles.row} >
           <View>
             <Avatar user={user}/>

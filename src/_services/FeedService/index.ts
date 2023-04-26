@@ -5,7 +5,7 @@ const getPosts = async (id?: string) => {
   let url = '/feed'
 
   if(id){
-    url = url + "?=" + id;
+    url = url + "?id=" + id;
   }
 
   return await DevagramApiService.get(url)

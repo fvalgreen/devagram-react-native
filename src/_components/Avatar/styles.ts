@@ -6,20 +6,29 @@ const { colors } = require("../../../app.json");
 const styles = StyleSheet.create({
   container: {
     marginBottom: 0,
-    paddingBottom: 0,
-    
+    paddingBottom: 0,    
     
   },
   imageUser: {
     width: 32,
     height: 32,
     borderRadius: 100,
+    backgroundColor: colors.corBranco
 
   },
-  postImage: {
-    width: width,
-    height: height * 0.5,
+  imageUserLinear: {
+    width: 88,
+    height: 88,
+    borderRadius: 100,
+    backgroundColor: colors.corBranco
   },
+  linearGradientContainer: {
+    width: 95,
+    height: 95,
+    borderRadius: 100,
+    alignItems: "center",
+    justifyContent: "center"
+  }
  
 });
 

@@ -40,5 +40,10 @@ const search = async (filter: string) => {
   return await DevagramApiService.get(`/pesquisa?filtro=${filter}`);
 };
 
+const getProfile =async (id:string) => {
+  console.log(`/pesquisa?id=${id}`);
+  return await DevagramApiService.get(`/pesquisa?id=${id}`);
+}
 
-export { login, getCurrentUser, updateCurrentUser, register, search };
+
+export { login, getCurrentUser, updateCurrentUser, register, search, getProfile };

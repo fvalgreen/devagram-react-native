@@ -19,5 +19,6 @@ export interface IUserData {
   followers: number,
   following: number,
   posts: number,
-  index: number
+  index?: number,
+  followThisUser: boolean
 }

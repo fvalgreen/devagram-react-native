@@ -6,7 +6,7 @@ const {colors} = require("../../../app.json");
 
 const Button = (props: IButton) => {
   return (
-    <View style={styles.containerButton} >
+    <View style={[styles.containerButton, props.style]} >
       <TouchableOpacity
         onPress={props.onPress}
         disabled={props.disabled}
@@ -15,7 +15,7 @@ const Button = (props: IButton) => {
         {props.loading ? (
           <ActivityIndicator size={30} color={colors.corBranco} />
         ) : (
-          <Text style={styles.text} >{props.placeholder}</Text>
+          <Text style={[styles.text, props.style]} >{props.placeholder}</Text>
         )}
       </TouchableOpacity>
     </View>

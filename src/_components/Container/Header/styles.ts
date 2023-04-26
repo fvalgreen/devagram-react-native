@@ -18,9 +18,19 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     marginHorizontal: 10,
   },
+  rowProfile: {
+    alignItems: "center",
+    justifyContent: "space-between",    
+    flexDirection: "row",
+    flex: 1,
+    paddingVertical: 8,
+    marginHorizontal: 10,
+  },
  logo: {       
     marginHorizontal: 6,
-    flex: 0.8,
+    flex: 0.8,    
+  },
+ leftArrow: {       
     
   },
   icon: {
@@ -47,7 +57,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 4,
     flex: 1
-  }
+  },
+  profileName: {
+    fontFamily: "BiennaleBold",
+    fontSize: 16,  
+    
+ }
   
 });
 
