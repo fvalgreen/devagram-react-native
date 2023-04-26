@@ -16,15 +16,20 @@ const Profile = () => {
   
   const [userLogged, setUserLogged] = useState<IUser>();
   const [profile, setProfile] = useState<IUserData>();
+  const [isInPersonalProfile, setIsInPersonalProfile] = useState<boolean>(false);
 
   useEffect(() => {
     getProfile();
-  },[])
+    if(navigation.getState().routes.find(route => route.name == "Profile")){
+      getProfile()
+    }
+  },[navigation.getState().routes.find(route => route.name == "Profile")?.params])
 
 
   const getProfile = async () => {
 
   const profileParams = navigation.getState().routes.find(route => route.name == "Profile")?.params;
+  console.log(profileParams)
   
     try {
       const user = await UserService.getCurrentUser();
@@ -32,9 +37,11 @@ const Profile = () => {
 
       var profile;
       if(profileParams && profileParams.id){
-        profile = await UserService.getProfile(profileParams.id);        
+        profile = await UserService.getProfile(profileParams.id); 
+        setIsInPersonalProfile(false);       
       }else if(user && user.id){
         profile = await UserService.getProfile(user?.id);
+        setIsInPersonalProfile(true)
       }        
         
         if(profile){
@@ -59,7 +66,7 @@ const Profile = () => {
   };
   return (
     <Container
-      footerProps={{ currentTab: userLogged?.id == profile?.id ? "Profile" : "Home"}}
+      footerProps={{ currentTab: userLogged?.id == profile?.id ? "Profile" : "Home", currentUser: userLogged}}
       headerProps={{ profileHeader: {
         idExternalProfile: userLogged?.id != profile?.id ,
         userName: profile?.name || ""

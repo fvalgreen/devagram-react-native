@@ -33,7 +33,7 @@ const Footer = (props: IFooter) => {
     },
     {
       title: 'Profile',
-      onPress: () => {navigation.navigate('Profile')},
+      onPress: () => {navigation.navigate('Profile', props.currentUser);},
       icon: <SvgUsuarioCinza />,
       iconActived: <SvgUsuarioAtivo />
     },
