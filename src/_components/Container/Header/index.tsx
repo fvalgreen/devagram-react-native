@@ -71,6 +71,18 @@ const Header = (props: IHeader) => {
           </View>
         </View>
       )}
+
+      {props.editProfileHeader &&
+      <View style={styles.rowProfile}> 
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Text style={styles.textCancel}>Cancelar</Text>
+        </TouchableOpacity>
+        <Text style={styles.editProfile}>Editar Perfil</Text>
+        <TouchableOpacity onPress={logout}>
+          <Text style={styles.textSubmit}>Concluir</Text>
+        </TouchableOpacity>
+      </View>
+      }
     </View>
   );
 };

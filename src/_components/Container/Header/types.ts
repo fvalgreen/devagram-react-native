@@ -2,7 +2,8 @@ export interface IHeader {
   default?: boolean;
   searchBar?: ISearchBar;
   headerNewPublication?: IHeaderNewPublication;
-  profileHeader?: IProfileHeader
+  profileHeader?: IProfileHeader;
+  editProfileHeader?: IEditProfileHeader;
 }
 
 export interface IHeaderNewPublication {
@@ -18,5 +19,9 @@ export interface ISearchBar {
 
 export interface IProfileHeader {
   userName: string;
-  idExternalProfile: boolean
+  idExternalProfile: boolean;
+}
+
+export interface IEditProfileHeader {
+  submit: () => void;
 }

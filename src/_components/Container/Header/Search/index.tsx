@@ -5,8 +5,14 @@ import { search } from "../../../../_services/UserService";
 import styles from "./styles";
 import SvgAvatar from "../../../../_assets/image/SvgAvatar";
 import Avatar from "../../../Avatar";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../../../_routes/RootStackParams";
+import { useNavigation } from "@react-navigation/native";
 
 const Search = (props: { filter: string }) => {
+  type navigationTypes = NativeStackNavigationProp<RootStackParamList, 'Home'>
+  const navigation = useNavigation<navigationTypes>()
+
   const [loading, setLoading] = useState<boolean>(false);
   const [users, setUsers] = useState<IUserData[]>([]);
 
@@ -49,7 +55,7 @@ const Search = (props: { filter: string }) => {
   const renderItem = (user: IUserData) => {
     return (
       
-      <TouchableOpacity style={user.index && user.index % 2 != 0 ? styles.backgroundOdd : styles.backgroundEven } >
+      <TouchableOpacity onPress={() => navigation.navigate("Profile", user)} style={user.index && user.index % 2 != 0 ? styles.backgroundOdd : styles.backgroundEven } >
         <View style={styles.row} >
           <View>
             <Avatar user={user}/>

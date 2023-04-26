@@ -61,6 +61,20 @@ const styles = StyleSheet.create({
   profileName: {
     fontFamily: "BiennaleBold",
     fontSize: 16,      
+ },
+ textCancel:{
+  color: colors.corCinza3,
+  fontFamily: "BiennaleRegular",
+  fontSize: 14,
+ },
+ editProfile: {
+    fontFamily: "BiennaleBold",
+    fontSize: 20, 
+ },
+ textSubmit:{
+  color: colors.corPrimaria2,
+  fontFamily: "BiennaleBold",
+  fontSize: 14,
  }
   
 });

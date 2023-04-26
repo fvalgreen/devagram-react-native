@@ -67,7 +67,7 @@ const Feed = (props: { isProfileFeed?: boolean; profile?: IUserData }) => {
 
   return (
     <View>
-      <FlatList
+      <FlatList      
         data={posts}
         renderItem={({ item }) => <Post post={item} />}
         keyExtractor={(item) => item.id?.toString()}

@@ -12,15 +12,24 @@ import Comments from "../Comments";
 import Avatar from "../../Avatar";
 import * as FeedService from "../../../_services/FeedService";
 import { err } from "react-native-svg/lib/typescript/xml";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../../_routes/RootStackParams";
+import { useNavigation } from "@react-navigation/native";
 
 const Post = (props: { post: IPost }) => {
+  type navigationTypes = NativeStackNavigationProp<RootStackParamList, "Home">;
+  const navigation = useNavigation<navigationTypes>();
+
   const limitOfDescription = 100;
 
   const [liked, setLiked] = useState<boolean>(false);
-  const [numberOfLikes, setNumberOfLikes] = useState<number>(props.post.likes.length);
+  const [numberOfLikes, setNumberOfLikes] = useState<number>(
+    props.post.likes.length
+  );
   const [commented, setCommented] = useState<boolean>(true);
   const [userLogged, setUserLogged] = useState<IUser>();
-  const [textMoreorLess, setTextMoreOrLess] = useState<string>("ver mais/menos");
+  const [textMoreorLess, setTextMoreOrLess] =
+    useState<string>("ver mais/menos");
   const [description, setDescription] = useState<string>(
     props.post.description
   );
@@ -35,10 +44,10 @@ const Post = (props: { post: IPost }) => {
     try {
       setLiked(!liked);
       await FeedService.toggleLike(props.post.id);
-      if(liked){
-        setNumberOfLikes(numberOfLikes - 1)
-      }else{
-        setNumberOfLikes(numberOfLikes + 1)
+      if (liked) {
+        setNumberOfLikes(numberOfLikes - 1);
+      } else {
+        setNumberOfLikes(numberOfLikes + 1);
       }
     } catch (error: any) {
       Alert.alert("Erro", "Erro ao efetuar a curtida");
@@ -67,27 +76,28 @@ const Post = (props: { post: IPost }) => {
         props.post.description.substring(0, limitOfDescription) + "..."
       );
       setNumberOfLines(2);
-    }else{
+    } else {
       if (
         props.post.description.length > limitOfDescription &&
         textMoreorLess === "ver mais\\menos"
       ) {
         setDescription(props.post.description + " ");
         setNumberOfLines(undefined);
-    }
+      }
     }
   };
 
   const verifyLengthOfDescription = () => {
-    setTextMoreOrLess(textMoreorLess === "ver mais/menos" ? "ver mais\\menos" : "ver mais/menos");
+    setTextMoreOrLess(
+      textMoreorLess === "ver mais/menos" ? "ver mais\\menos" : "ver mais/menos"
+    );
     getDescription();
-    
   };
 
   return (
     <View style={styles.container}>
       <View>
-        <TouchableOpacity style={styles.containerUser}>
+        <TouchableOpacity style={styles.containerUser} onPress={() => navigation.navigate("Profile", props.post.user)}>
           <View>
             <Avatar user={props.post.user} />
           </View>
@@ -115,8 +125,7 @@ const Post = (props: { post: IPost }) => {
         <Text style={styles.textLikes}>
           Curtido por{" "}
           <Text style={styles.textLikesBold}>
-            {numberOfLikes}{" "}
-            {numberOfLikes > 1 ? "pessoas" : "pessoa"}
+            {numberOfLikes} {numberOfLikes > 1 ? "pessoas" : "pessoa"}
           </Text>
         </Text>
       </View>
@@ -135,8 +144,8 @@ const Post = (props: { post: IPost }) => {
           suppressHighlighting={false}
         >
           {props.post.description.length > limitOfDescription
-          ? textMoreorLess
-          : null}
+            ? textMoreorLess
+            : null}
         </Text>
       </View>
       {userLogged && (
@@ -145,7 +154,6 @@ const Post = (props: { post: IPost }) => {
           comments={props.post.comments}
           userLogged={userLogged}
           postId={props.post.id}
-          
         />
       )}
     </View>
