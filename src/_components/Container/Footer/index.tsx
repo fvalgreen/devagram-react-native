@@ -1,5 +1,5 @@
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { View, Text, TouchableOpacity } from "react-native"
+import { View, Text, TouchableOpacity } from "react-native";
 import { RootStackParamList } from "../../../_routes/RootStackParams";
 import { useNavigation } from "@react-navigation/native";
 import SvgHomeAtivo from "../../../_assets/image/SvgHomeAtivo";
@@ -11,8 +11,6 @@ import SvgUsuarioAtivo from "../../../_assets/image/SvgUsuarioAtivo";
 import styles from "./styles";
 import { IFooter } from "./types";
 
-
-
 const Footer = (props: IFooter) => {
   type navigationTypes = NativeStackNavigationProp<RootStackParamList, "Login">;
 
@@ -20,37 +18,42 @@ const Footer = (props: IFooter) => {
 
   const menu: any = [
     {
-      title: 'Home',
-      onPress: () => {navigation.navigate('Home')},
+      title: "Home",
+      onPress: () => {
+        navigation.navigate("Home");
+      },
       icon: <SvgHomeCinza />,
-      iconActived: <SvgHomeAtivo/>,
+      iconActived: <SvgHomeAtivo />,
     },
     {
-      title: 'NewPublication',
-      onPress: () => {navigation.navigate('NewPublication')},
+      title: "NewPublication",
+      onPress: () => {
+        navigation.navigate("NewPublication");
+      },
       icon: <SvgPublicacaoCinza />,
-      iconActived: <SvgPublicacaoAtivo />
+      iconActived: <SvgPublicacaoAtivo />,
     },
     {
-      title: 'Profile',
-      onPress: () => {navigation.navigate('Profile', props.currentUser);},
+      title: "Profile",
+      onPress: () => {
+        navigation.navigate("Profile", props.currentUser);
+      },
       icon: <SvgUsuarioCinza />,
-      iconActived: <SvgUsuarioAtivo />
+      iconActived: <SvgUsuarioAtivo />,
     },
-  ]
+  ];
 
   return (
-    <View style={styles.container} >
-      <View style={styles.row} >
+    <View style={styles.container}>
+      <View style={styles.row}>
         {menu.map((botao: any, index: any) => (
-          <TouchableOpacity onPress={botao.onPress} key={index} >
+          <TouchableOpacity onPress={botao.onPress} key={index}>
             {props.currentTab === botao.title ? botao.iconActived : botao.icon}
           </TouchableOpacity>
-        )
-        )}
-      </View>      
+        ))}
+      </View>
     </View>
-  )
-}
+  );
+};
 
 export default Footer;

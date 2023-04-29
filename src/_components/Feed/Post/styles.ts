@@ -5,8 +5,7 @@ const { colors } = require("../../../../app.json");
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 0,
-    paddingBottom: 0
+    backgroundColor: colors.corBranco,
     
   },
   imageUser: {

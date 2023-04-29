@@ -39,7 +39,10 @@ const Container = (props: IContainer) => {
       />
       <Search filter={filter}/>
       <View style={styles.content}>{props.children}</View>
+      <View>
       <Footer currentTab={props.footerProps.currentTab} currentUser={userLogged} />
+
+      </View>
     </SafeAreaView>
   );
 };
