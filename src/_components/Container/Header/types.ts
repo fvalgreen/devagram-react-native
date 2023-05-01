@@ -24,4 +24,5 @@ export interface IProfileHeader {
 
 export interface IEditProfileHeader {
   submit: () => void;
+  submitEnable?: boolean;
 }

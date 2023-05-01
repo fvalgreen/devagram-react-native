@@ -1,4 +1,4 @@
-import { Text, TextInput, TouchableOpacity } from "react-native";
+import { Alert, Text, TextInput, TouchableOpacity } from "react-native";
 import { View } from "react-native";
 import Container from "../../_components/Container";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -13,6 +13,7 @@ import { useState } from "react";
 import SvgLimpar from "../../_assets/image/SvgLimpar";
 import styles from "./styles";
 import * as ImagePicker from "expo-image-picker";
+import * as UserService from "../../_services/UserService";
 
 const EditProfile = () => {
   type navigationTypes = NativeStackNavigationProp<
@@ -40,14 +41,38 @@ const EditProfile = () => {
     }
   };
 
-  
+  const editProfile = async () => {
+    if (image || name) {
+      try {
+        const body = new FormData();
+        if (image) {
+          const file: any = {
+            uri: image.uri,
+            type: `image/${image.uri.split("/").pop().split(".").pop()}`,
+            name: image.uri.split("/").pop(),
+          };
+          body.append("file", file);
+        };
+        if (name) {
+          body.append("nome", name);
+        };
+
+        await UserService.update(body)
+        navigation.goBack();
+      } catch (error) {
+        Alert.alert("Error", "Erro ao alterar o perfil");
+        console.log(error);
+      }
+    }
+  };
 
   return (
     <Container
       footerProps={{ currentTab: "Profile" }}
       headerProps={{
         editProfileHeader: {
-          submit: () => {},
+          submit: editProfile,
+          submitEnable: image || name
         },
       }}
     >
@@ -55,7 +80,7 @@ const EditProfile = () => {
         <View style={styles.containerImage}>
           {profile && (
             <View>
-              <Avatar withLinearGradient={true} user={profile} />
+              <Avatar withLinearGradient={true} user={profile} image={image} />
             </View>
           )}
           <TouchableOpacity onPress={pickImage}>
@@ -64,18 +89,18 @@ const EditProfile = () => {
         </View>
         <View style={styles.containerEditName}>
           <View style={styles.containerEditNameRow}>
-          <Text style={styles.textName}>Nome</Text>
-          {profile && (
-            <TextInput
-              onChangeText={(e) => setName(e)}
-              placeholder={profile.name ? profile.name : "Digite um nome"}
-              value={name}
-              style={styles.input}
-            />
-          )}
-          <TouchableOpacity onPress={() => setName('')}>
-            <SvgLimpar />
-          </TouchableOpacity>            
+            <Text style={styles.textName}>Nome</Text>
+            {profile && (
+              <TextInput
+                onChangeText={(e) => setName(e)}
+                placeholder={profile.name ? profile.name : "Digite um nome"}
+                value={name}
+                style={styles.input}
+              />
+            )}
+            <TouchableOpacity onPress={() => setName("")}>
+              <SvgLimpar />
+            </TouchableOpacity>
           </View>
         </View>
       </View>

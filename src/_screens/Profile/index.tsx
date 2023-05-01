@@ -20,6 +20,9 @@ const Profile = () => {
 
   useEffect(() => {
     getProfile();
+    navigation.addListener('focus', () => {
+      getProfile();
+    })
     if(navigation.getState().routes.find(route => route.name == "Profile")){
       getProfile()
     }

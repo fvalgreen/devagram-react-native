@@ -75,6 +75,11 @@ const styles = StyleSheet.create({
   color: colors.corPrimaria2,
   fontFamily: "BiennaleBold",
   fontSize: 14,
+ },
+ textSubmitDisable: {
+  color: colors.corCinza1,
+  fontFamily: "BiennaleBold",
+  fontSize: 14,
  }
   
 });

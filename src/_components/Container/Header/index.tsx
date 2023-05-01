@@ -78,8 +78,8 @@ const Header = (props: IHeader) => {
           <Text style={styles.textCancel}>Cancelar</Text>
         </TouchableOpacity>
         <Text style={styles.editProfile}>Editar Perfil</Text>
-        <TouchableOpacity onPress={logout}>
-          <Text style={styles.textSubmit}>Concluir</Text>
+        <TouchableOpacity onPress={() => props.editProfileHeader?.submitEnable && props.editProfileHeader.submit()}>
+          <Text style={props.editProfileHeader.submitEnable ?  styles.textSubmit : styles.textSubmitDisable}>Concluir</Text>
         </TouchableOpacity>
       </View>
       }

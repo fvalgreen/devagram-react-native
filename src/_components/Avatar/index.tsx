@@ -1,4 +1,4 @@
-import { Image, TouchableOpacity } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 import SvgAvatar from "../../_assets/image/SvgAvatar";
 import styles from "./styles";
 import { IUser, IUserData } from "../../_services/UserService/types";
@@ -10,6 +10,7 @@ import { LinearGradient } from "expo-linear-gradient";
 const Avatar = (props: {
   withLinearGradient?: boolean;
   user: IUser | IUserData;
+  image?: any
 }) => {
   type navigationTypes = NativeStackNavigationProp<RootStackParamList, "Home">;
   const navigation = useNavigation<navigationTypes>();
@@ -21,9 +22,15 @@ const Avatar = (props: {
       style={styles.linearGradientContainer}
     >
       {props.user.avatar ? (
-        <Image style={styles.imageUserLinear} source={{ uri: props.user.avatar }} />
+        <Image style={styles.imageUserLinear} source={props.image ? {uri: props.image.uri} : { uri: props.user.avatar }} />
       ) : (
-        <SvgAvatar style={styles.imageUserLinear} />
+        <View>
+          {props.image ? 
+            <SvgAvatar style={styles.imageUserLinear} />
+            :
+            <Image style={styles.imageUserLinear} source={{uri: props.image.uri}} />
+          }
+        </View>
       )}
     </LinearGradient>
   ) : (
