@@ -18,4 +18,11 @@ const toggleLike = async (postId: string) => {
 const sendComment = async (postId: string, message: string) => {
   return await DevagramApiService.put(`/comentario?id=${postId}`, {"comentario" : message})
 }
-export { getPosts, toggleLike, sendComment };
+
+const sendPost = async (body: FormData) => {
+  await DevagramApiService.post("/publicacao", body, {
+    "content-Type": "multipart/form-data",
+  });
+}
+
+export { getPosts, toggleLike, sendComment, sendPost };

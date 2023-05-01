@@ -83,6 +83,19 @@ const Header = (props: IHeader) => {
         </TouchableOpacity>
       </View>
       }
+
+      {
+        props.headerNewPublication &&
+        <View style={styles.rowProfile}> 
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Text style={styles.textCancel}>Cancelar</Text>
+          </TouchableOpacity>
+          <Text style={styles.editProfile}>Nova Publicação</Text>
+          <TouchableOpacity onPress={() => props.headerNewPublication?.continueEnabled && props.headerNewPublication?.onPressContinue()}>
+            <Text style={props.headerNewPublication.continueEnabled ?  styles.textSubmit : styles.textSubmitDisable}>Compartilhar</Text>
+          </TouchableOpacity>
+        </View>
+      }
     </View>
   );
 };

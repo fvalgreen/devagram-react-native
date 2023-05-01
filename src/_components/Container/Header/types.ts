@@ -4,10 +4,11 @@ export interface IHeader {
   headerNewPublication?: IHeaderNewPublication;
   profileHeader?: IProfileHeader;
   editProfileHeader?: IEditProfileHeader;
+  
 }
 
 export interface IHeaderNewPublication {
-  onPressCancel: () => void;
+  onPressCancel?: () => void;
   onPressContinue: () => void;
   continueEnabled: boolean;
 }
@@ -26,3 +27,5 @@ export interface IEditProfileHeader {
   submit: () => void;
   submitEnable?: boolean;
 }
+
+

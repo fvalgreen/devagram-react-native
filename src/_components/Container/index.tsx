@@ -27,7 +27,7 @@ const Container = (props: IContainer) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header
+      <Header        
         editProfileHeader={props.headerProps.editProfileHeader}
         profileHeader={props.headerProps.profileHeader}
         default={props.headerProps.default}
